@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.Main-ratio{
+  width: 80%;
+  float: right;
+}
+.admin-panel{
+  width: 20%;
+  float: left;
+}
