@@ -4,12 +4,18 @@ import { homeObjOne, homeObjTwo, homeObjThree, homeObjFour, galleryImages } from
 import Pricing from '../../Pricing';
 import WSPGallery from '../../WSPGallery';
 
-function Home() {
+function Home({dental_info,images}) {
+  
+  
+  dental_info.map(todo => (
+    homeObjOne.description = todo.description
+  ))
+  
   return (
     <>
       <HeroSection {...homeObjOne} />
       <WSPGallery
-        galleryImages={galleryImages}
+        galleryImages={images? images:galleryImages}
       />
       <HeroSection {...homeObjThree} />
       <HeroSection {...homeObjTwo} />

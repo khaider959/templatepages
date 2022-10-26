@@ -11,50 +11,49 @@ import Adminpanel from './components/Adminpanel';
 import Navbartemplateone from './components/Template1/Navbartemplateone';
 
 function App() {
-  const [merchants, setMerchants] = useState(false);
+  const [todos, setTodos] = useState([]);
+  const [images, setImages] = useState([]);
+  //delete todo function
+
+  const deleteTodo = async id => {
+    try {
+      const deleteTodo = await fetch(`http://localhost:3001/todos/${id}`, {
+        method: "DELETE"
+      });
+
+      setTodos(todos.filter(todo => todo.todo_id !== id));
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getTodos = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/todos");
+      const jsonData = await response.json();
+
+      setTodos(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  const getImages = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/images");
+      const jsonData = await response.json();
+
+      setImages(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   useEffect(() => {
-    getMerchant();
+    getTodos();
+    getImages();
   }, []);
-  function getMerchant() {
-    fetch('http://localhost:3001')
-      .then(response => {
-        return response.text();
-      })
-      .then(data => {
-        setMerchants(data);
-      });
-  }
-  function createMerchant() {
-    let name = prompt('Enter merchant name');
-    let email = prompt('Enter merchant email');
-    fetch('http://localhost:3001/merchants', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({name, email}),
-    })
-      .then(response => {
-        return response.text();
-      })
-      .then(data => {
-        alert(data);
-        getMerchant();
-      });
-  }
-  function deleteMerchant() {
-    let id = prompt('Enter merchant id');
-    fetch(`http://localhost:3001/merchants/${id}`, {
-      method: 'DELETE',
-    })
-      .then(response => {
-        return response.text();
-      })
-      .then(data => {
-        alert(data);
-        getMerchant();
-      });
-  }
+
+  console.log(todos);
   
   return (
     <Router>
@@ -63,22 +62,15 @@ function App() {
       </div>
       <div className='Main-ratio'>
       
-      <Navbar />
+      <Navbar todos={todos} />
       <Navbartemplateone/>
-      <div>
-      {merchants ? merchants : 'There is no merchant data available'}
-      <br />
-      <button onClick={createMerchant}>Add merchant</button>
-      <br />
-      <button onClick={deleteMerchant}>Delete merchant</button>
-      </div>
       <Routes>
-        <Route path='/' render element={<Home/>} />
+        <Route path='/' render element={<Home dental_info={todos} images={images}/>} />
         <Route path='/services' render element={<Services/>} />
         <Route path='/products' render element={<Products/>} />
         <Route path='/sign-up' render element={<SignUp/>} />
       </Routes>
-      <Footer />
+      <Footer  todos={todos}/>
       </div>
     </Router>
   );

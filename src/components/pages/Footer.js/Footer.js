@@ -11,7 +11,14 @@ import {
 } from 'react-icons/fa';
 import { MdFingerprint } from 'react-icons/md';
 
-function Footer() {
+function Footer({todos}) {
+  
+
+  let dentalname;
+  todos.map(todo => (
+    dentalname = todo.dentalname
+  ))
+  
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
@@ -73,10 +80,10 @@ function Footer() {
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
               <MdFingerprint className='navbar-icon' />
-              LAVISH
+              {dentalname}
             </Link>
           </div>
-          <small className='website-rights'>LAVISH © 2020</small>
+          <small className='website-rights'>{dentalname} © 2020</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'

@@ -6,7 +6,7 @@ import { MdFingerprint } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
-function Navbar() {
+function Navbar({todos}) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -26,6 +26,10 @@ function Navbar() {
     window.addEventListener('resize', showButton);
   }, []);
 
+  let dentalname;
+  todos.map(todo => (
+    dentalname = todo.dentalname
+  ))
 
   return (
     <>
@@ -34,7 +38,7 @@ function Navbar() {
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
               <MdFingerprint className='navbar-icon' />
-              Test Template
+              {dentalname}
             </Link>
             <div className='menu-icon' onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
