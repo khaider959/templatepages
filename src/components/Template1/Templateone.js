@@ -1,8 +1,9 @@
 import React from 'react'
+import Navbartemplateone from './Navbartemplateone'
 
 const Templateone = () => {
   return (
-    <div>Templateone</div>
+    <Navbartemplateone/>
   )
 }
 

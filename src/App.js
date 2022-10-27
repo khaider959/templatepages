@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/pages/Footer.js/Footer';
 import Adminpanel from './components/Adminpanel';
 import Navbartemplateone from './components/Template1/Navbartemplateone';
+import Templateone from './components/Template1/Templateone';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -61,14 +62,14 @@ function App() {
         <Adminpanel/>
       </div>
       <div className='Main-ratio'>
-      
-      <Navbar todos={todos} />
       <Navbartemplateone/>
+      <Navbar todos={todos} />
       <Routes>
         <Route path='/' render element={<Home dental_info={todos} images={images}/>} />
         <Route path='/services' render element={<Services/>} />
         <Route path='/products' render element={<Products/>} />
         <Route path='/sign-up' render element={<SignUp/>} />
+        <Route path='/templateone' render element={<Templateone/>} />
       </Routes>
       <Footer  todos={todos}/>
       </div>
