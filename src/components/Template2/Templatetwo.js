@@ -1,17 +1,31 @@
 import React from 'react'
-import Headerr from './header'
-import Main from './main'
-import Footerr from './footer'
+import Naviii from './Naviii';
+import Mainheader from './Mainheader';
+import Promo from './Promo';
+import Team from './Team';
+import Work from './Work';
+import Statistics from './Statistics';
+import Skills from './Skills';
+import Pricingsection from './Pricingsection';
+import Contactsection from './Contactsection';
+import Footersection from './Footersection';
+import Aboutsection from './Aboutsection';
 
-import Nav from './nav'
 
 export default function Templatetwo() {
   return (
     <>
-    <Nav/>
-    <Headerr/>
-    <Main/>
-    <Footerr/>
+    <Naviii/>
+    <Mainheader/>
+    <Aboutsection/>
+    <Promo/>
+    <Team/>
+    <Statistics/>
+    <Work/>
+    <Skills/>
+    <Pricingsection/>
+    <Contactsection/>
+    <Footersection/>
     </>
   )
 }
