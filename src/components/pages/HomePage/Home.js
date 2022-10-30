@@ -30,6 +30,20 @@ function Home({dental_info,images,boxes}) {
   if(background=='dark'){
     homeObjOne.lightBg=false;
   }
+
+  if(style!=null){
+    homeObjOne['style']=style
+    console.log(homeObjOne.style)
+  }
+  if(fontcolor!=null){
+    homeObjOne['fontcolor']=fontcolor
+    console.log(homeObjOne.fontcolor)
+  }
+  if(fontsize!=null){
+    homeObjOne['fontsize']=fontsize
+    console.log(homeObjOne.fontsize)
+  }
+
   
   return (
     <>

@@ -69,6 +69,7 @@ function App() {
   }, []);
 
   console.log(todos);
+  console.log(boxes);
   
   return (
     <Router>

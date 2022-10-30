@@ -13,8 +13,22 @@ function HeroSection({
   buttonLabel,
   img,
   alt,
-  imgStart
-}) {
+  imgStart,
+  style,fontcolor,fontsize
+}) 
+
+{
+
+  if (fontsize=='large'){
+    fontsize='30px'
+  }
+  if (fontsize=='small'){
+    fontsize='10px'
+  }
+  if (fontsize=='medium'){
+    fontsize='18px'
+  }
+
   return (
     <>
       <div
@@ -40,6 +54,7 @@ function HeroSection({
                       ? 'home__hero-subtitle'
                       : 'home__hero-subtitle dark'
                   }
+                  style={{color:fontcolor,fontFamily:style,fontSize:fontsize}}
                 >
                   {description}
                 </p>
