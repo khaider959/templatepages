@@ -47,6 +47,16 @@ app.get("/images", async (req, res) => {
   }
 });
 
+//get modifications
+app.get("/boxes", async (req, res) => {
+  try {
+    const allTodos = await pool.query("SELECT * FROM boxes");
+    res.json(allTodos.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //get a todo
 
 app.get("/todos/:id", async (req, res) => {

@@ -1,6 +1,7 @@
-.navbar {
+.navbarrr {
   background: #1c2237;
   height: 80px;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,13 +11,13 @@
   z-index: 999;
 }
 
-.navbar-container {
+.navbar-containerrr {
   display: flex;
   justify-content: space-between;
   height: 80px;
 }
 
-.container {
+.containerrr {
   z-index: 1;
   width: 100%;
   max-width: 1300px;

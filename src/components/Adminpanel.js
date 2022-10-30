@@ -12,9 +12,9 @@ const Adminpanel = () => {
     <>
       <div className="sidenav">
       <h1 className='headline'>Design Your Template</h1>
-              <Link to='/services'>Template 1</Link>
-              <Link to='/sign-up'>Template 2</Link>
-              <Link to='/products'>Template 3</Link>
+              <Link to='/'>Template 1</Link>
+              <Link to='/templateone'>Template 2</Link>
+              <Link to='/templatetwo'>Template 3</Link>
        </div>
     </>
   )

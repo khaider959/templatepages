@@ -8,12 +8,13 @@ import{BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Footer from './components/pages/Footer.js/Footer';
 import Adminpanel from './components/Adminpanel';
-import Navbartemplateone from './components/Template1/Navbartemplateone';
 import Templateone from './components/Template1/Templateone';
+import Templatetwo from './components/Template2/Templatetwo';
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [images, setImages] = useState([]);
+  const [boxes, setBoxes] = useState([]);
   //delete todo function
 
   const deleteTodo = async id => {
@@ -49,9 +50,22 @@ function App() {
     }
   };
 
+  const getBoxes = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/boxes");
+      const jsonData = await response.json();
+
+      setBoxes(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+
   useEffect(() => {
     getTodos();
     getImages();
+    getBoxes();
   }, []);
 
   console.log(todos);
@@ -62,16 +76,14 @@ function App() {
         <Adminpanel/>
       </div>
       <div className='Main-ratio'>
-      <Navbartemplateone/>
-      <Navbar todos={todos} />
       <Routes>
-        <Route path='/' render element={<Home dental_info={todos} images={images}/>} />
+        <Route path='/' render element={<Home dental_info={todos} images={images} boxes={boxes}/>} />
         <Route path='/services' render element={<Services/>} />
         <Route path='/products' render element={<Products/>} />
         <Route path='/sign-up' render element={<SignUp/>} />
         <Route path='/templateone' render element={<Templateone/>} />
+        <Route path='/templatetwo' render element={<Templatetwo/>} />
       </Routes>
-      <Footer  todos={todos}/>
       </div>
     </Router>
   );

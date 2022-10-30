@@ -34,8 +34,8 @@ function Navbar({todos}) {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <nav className='navbar'>
-          <div className='navbar-container container'>
+        <nav className='navbarrr'>
+          <div className='navbar-containerrr containerrr'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
               <MdFingerprint className='navbar-icon' />
               {dentalname}
