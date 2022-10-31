@@ -10,6 +10,7 @@ import Footer from './components/pages/Footer.js/Footer';
 import Adminpanel from './components/Adminpanel';
 import Templateone from './components/Template1/Templateone';
 import Templatetwo from './components/Template2/Templatetwo';
+import Templatethree from './components/Template3/Templatethree';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -84,6 +85,7 @@ function App() {
         <Route path='/sign-up' render element={<SignUp/>} />
         <Route path='/templateone' render element={<Templateone/>} />
         <Route path='/templatetwo' render element={<Templatetwo/>} />
+        <Route path='/templatethree' render element={<Templatethree/>} />
       </Routes>
       </div>
     </Router>
